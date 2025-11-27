@@ -1,12 +1,14 @@
-unit ServerController;
+unit ServerController_old;
 
 interface
 
 uses
-  SysUtils, Classes, IWServerControllerBase, IWBaseForm, HTTPApp,
+  SysUtils, Classes, IWServerControllerBase, IWBaseForm,
+  HTTPApp,
   IWApplication, IWAppForm,
   IWGlobal,
   Windows,
+  // For OnNewSession Event
   IniFiles,
   IW.Common.AppInfo,
   IW.Browser.Browser,
@@ -15,11 +17,10 @@ uses
   resin_dm,
   resin_constants;
 
-
 type
   TIWServerController = class(TIWServerControllerBase)
-    procedure IWServerControllerBaseGetMainForm(var vMainForm: TIWBaseForm);
     procedure IWServerControllerBaseNewSession(aSession: TIWApplication);
+    procedure IWServerControllerBaseGetMainForm(var vMainForm: TIWBaseForm);
   private
     procedure GetIniFile;
   public
@@ -113,12 +114,8 @@ implementation
 
 uses
   System.IOUtils,
-  IWInit,
-  usr_uLogin, usr_uregister, XMLDoc, XMLIntf,
-  resin_umain,
-  usr_uDBInterface,
-  usr_insufficientright, usr_constants;
-
+  IWInit, XMLDoc, XMLIntf, resin_umain,
+  usr_uDBInterface, usr_uLogin, usr_uRegister, usr_constants;
 
 function IWServerController: TIWServerController;
 begin
@@ -162,11 +159,11 @@ begin
   UserControlPath := 'c:\Data\Firebird\UserControl2025v30_utf8.fdb';
   ResinDBPath := 'c:\Data\Firebird\ResinDB2025v30_utf8.fdb';
   DriverName := 'DevartFirebird';
-  LibraryName := 'c:\exe64\dbexpida41.dll';
-  VendorLib := 'c:\exe64\fbclient.dll';
+  LibraryName := 'dbexpida41.dll';
+  VendorLib := 'c:\exe32\fbclient.dll';
   GetDriverFunc := 'getSQLDriverFirebird';
   DBUserName := 'SYSDBA';
-  DBPassword := 'V0lcano3^';
+  DBPassword := 'Zbxc456~';
   DBSQLDialectStr := '3';
   DBCharSet := 'UTF8';
   PublicPath := TPath.GetPublicPath;
@@ -178,17 +175,17 @@ begin
   try
     URLBase := AppIni.ReadString('URLBase','URLBase','/resindb');
     if (URLBase = '/') then URLBase := '';
-    UserControlPath := AppIni.ReadString('Paths','UserControl path','c:\Data\Firebird\UserControl2025v50_UTF8.fdb');
-    ResinDBPath := AppIni.ReadString('Paths','ResinDB path','c:\Data\Firebird\ResinDB2025v50_UTF8.fdb');
-    LibraryName := AppIni.ReadString('Parameters','LibraryName','c:\exe64\dbexpida41.dll');
-    VendorLib := AppIni.ReadString('Parameters','VendorLib','c:\exe64\fbclient.dll');
+    UserControlPath := AppIni.ReadString('Paths','UserControl path','c:\Data\Firebird\UserControl2025v30_UTF8.fdb');
+    ResinDBPath := AppIni.ReadString('Paths','ResinDB path','c:\Data\Firebird\ResinDB2025v30_UTF8.fdb');
+    LibraryName := AppIni.ReadString('Parameters','LibraryName','dbexpida41.dll');
+    VendorLib := AppIni.ReadString('Parameters','VendorLib','c:\exe32\fbclient.dll');
     GetDriverFunc := AppIni.ReadString('Parameters','GetDriverFunc','getSQLDriverFirebird');
     DriverName := AppIni.ReadString('Parameters','DriverName','DevartFirebird');
     DBUserName := AppIni.ReadString('Parameters','User_Name','SYSDBA');
-    DBPassword := AppIni.ReadString('Parameters','Password','V0lcano3^');
+    DBPassword := AppIni.ReadString('Parameters','Password','Zbxc456~');
     DBSQLDialectStr := AppIni.ReadString('Parameters','SQLDialect','3');
     DBCharSet := AppIni.ReadString('Parameters','Charset','UTF8');
-    DBMonitor := AppIni.ReadString('Monitor','DBMonitor','Active');
+    DBMonitor := AppIni.ReadString('Monitor','DBMonitor','active');
     DebugButtons := AppIni.ReadString('Debug','Buttons','Active');
     DebugDelayConnections := AppIni.ReadString('Debug','DelayConnections','true');
     if (DebugButtons = 'Active') then UserSession.ShowDebugButtons := true;
@@ -208,46 +205,48 @@ begin
     EmailUserID := Trim(EmailUserID);
     EmailPassword := Trim(EmailPassword);
     URLonTerminate := Trim(URLonTerminate);
-    //define connection parameters for UserControl connection
-    dmUser.sqlcWebUser.Connected := false;
-    dmUser.sqlcWebUser.Params.Clear;
-    dmUser.sqlcWebUser.DriverName := DriverName;
-    dmUser.sqlcWebUser.LibraryName := LibraryName;
-    dmUser.sqlcWebUser.VendorLib := VendorLib;
-    dmUser.sqlcWebUser.GetDriverFunc := GetDriverFunc;
-    dmUser.sqlcWebUser.Params.Append('DriverName='+DriverName);
-    dmUser.sqlcWebUser.Params.Append('Database='+UserControlPath);
-    dmUser.sqlcWebUser.Params.Append('User_Name='+DBUserName);
-    dmUser.sqlcWebUser.Params.Append('Password='+DBPassword);
-    dmUser.sqlcWebUser.Params.Append('SQLDialect='+DBSQLDialectStr);
-    dmUser.sqlcWebUser.Params.Append('Charset='+DBCharSet);
-    dmUser.sqlcWebUser.Params.Append('DevartFirebird TransIsolation=ReadCommitted');
-    //dmUser.sqlcWebUser.Params.Append('WaitOnLocks=True');
-    dmUser.sqlcWebUser.Params.Append('UseUnicode=true');
-    //define connection parameters for ResinDB connection
-    dmR.sqlcResinDB.Connected := false;
-    dmR.sqlcResinDB.Params.Clear;
-    dmR.sqlcResinDB.LibraryName := LibraryName;
-    dmR.sqlcResinDB.VendorLib := VendorLib;
-    dmR.sqlcResinDB.GetDriverFunc := GetDriverFunc;
-    dmR.sqlcResinDB.Params.Append('DriverName='+DriverName);
-    dmR.sqlcResinDB.Params.Append('Database='+ResinDBPath);
-    dmR.sqlcResinDB.Params.Append('User_Name='+DBUserName);
-    dmR.sqlcResinDB.Params.Append('Password='+DBPassword);
-    dmR.sqlcResinDB.Params.Append('SQLDialect='+DBSQLDialectStr);
-    dmR.sqlcResinDB.Params.Append('Charset='+DBCharSet);
-    dmR.sqlcResinDB.Params.Append('DevartFirebird TransIsolation=ReadCommitted');
-    //dmR.sqlcResinDB.Params.Append('WaitOnLocks=True');
-    dmR.sqlcResinDB.Params.Append('UseUnicode=true');
-    if (DBMonitor = 'Active') then
-    begin
-      dmUser.SQLMonitor1.Active := true;
-      dmR.SQLMonitor1.Active := true;
-    end else
-    begin
-      dmUser.SQLMonitor1.Active := false;
-      dmR.SQLMonitor1.Active := false;
-    end;
+  //define connection parameters for UserControl connection
+  dmUser.sqlcWebUser.Connected := false;
+  dmUser.sqlcWebUser.Params.Clear;
+  dmUser.sqlcWebUser.DriverName := DriverName;
+  dmUser.sqlcWebUser.LibraryName := LibraryName;
+  dmUser.sqlcWebUser.VendorLib := VendorLib;
+  dmUser.sqlcWebUser.GetDriverFunc := GetDriverFunc;
+  dmUser.sqlcWebUser.Params.Append('DriverName='+DriverName);
+  dmUser.sqlcWebUser.Params.Append('Database='+UserControlPath);
+  dmUser.sqlcWebUser.Params.Append('User_Name='+DBUserName);
+  dmUser.sqlcWebUser.Params.Append('Password='+DBPassword);
+  dmUser.sqlcWebUser.Params.Append('SQLDialect='+DBSQLDialectStr);
+  dmUser.sqlcWebUser.Params.Append('Charset='+DBCharSet);
+  dmUser.sqlcWebUser.Params.Append('LocaleCode=0000');
+  dmUser.sqlcWebUser.Params.Append('DevartFirebird TransIsolation=ReadCommitted');
+  dmUser.sqlcWebUser.Params.Append('WaitOnLocks=True');
+  dmUser.sqlcWebUser.Params.Append('UseUnicode=true');
+  //define connection parameters for StratDB connection
+  dmR.sqlcResinDB.Connected := false;
+  dmR.sqlcResinDB.Params.Clear;
+  dmR.sqlcResinDB.LibraryName := LibraryName;
+  dmR.sqlcResinDB.VendorLib := VendorLib;
+  dmR.sqlcResinDB.GetDriverFunc := GetDriverFunc;
+  dmR.sqlcResinDB.Params.Append('DriverName='+DriverName);
+  dmR.sqlcResinDB.Params.Append('Database='+ResinDBPath);
+  dmR.sqlcResinDB.Params.Append('User_Name='+DBUserName);
+  dmR.sqlcResinDB.Params.Append('Password='+DBPassword);
+  dmR.sqlcResinDB.Params.Append('SQLDialect='+DBSQLDialectStr);
+  dmR.sqlcResinDB.Params.Append('Charset='+DBCharSet);
+  dmR.sqlcResinDB.Params.Append('LocaleCode=0000');
+  dmR.sqlcResinDB.Params.Append('DevartFirebird TransIsolation=ReadCommitted');
+  dmR.sqlcResinDB.Params.Append('WaitOnLocks=True');
+  dmR.sqlcResinDB.Params.Append('UseUnicode=true');
+  if (DBMonitor = 'Active') then
+  begin
+    dmUser.SQLMonitor1.Active := true;
+    dmR.SQLMonitor1.Active := true;
+  end else
+  begin
+    dmUser.SQLMonitor1.Active := false;
+    dmR.SQLMonitor1.Active := false;
+  end;
   finally
     AppIni.Free;
   end;
@@ -257,64 +256,6 @@ begin
   //dmUser.SetDeveloperData('UserControlPath = '+UserControlPath);
   //dmUser.SetDeveloperData('StratDBPath = '+StratDBPath);
   //dmUser.SetDeveloperData('DateViewPath = '+DateViewPath);
-end;
-
-{
-procedure TIWServerController.IWServerControllerBaseBrowserCheck(
-  aSession: TIWApplication; var rBrowser: TBrowser);
-var
-  MinVersion: Single;
-begin
-  // unknown browser
-  if (rBrowser is TOther) then begin
-    rBrowser.Free;
-    // accept the unknown browser as Internet Explorer 8
-    rBrowser := TInternetExplorer.Create(8);
-  end
-  // if is Safari, but older version
-  else if (rBrowser is TSafari) and (not rBrowser.IsSupported) then begin
-    MinVersion := rBrowser.MinSupportedVersion;
-    rBrowser.Free;
-    // we will create it as the minimum supported version
-    rBrowser := TSafari.Create(MinVersion);
-  end
-  // if is Chrome, but older version
-  else if (rBrowser is TChrome) and (not rBrowser.IsSupported) then begin
-    MinVersion := rBrowser.MinSupportedVersion;
-    rBrowser.Free;
-    // we will create it as the minimum supported version
-    rBrowser := TChrome.Create(MinVersion);
-  end
-  // if is Firefox, but older version
-  else if (rBrowser is TFirefox) and (not rBrowser.IsSupported) then begin
-    MinVersion := rBrowser.MinSupportedVersion;
-    rBrowser.Free;
-    // we will create it as the minimum supported version
-    rBrowser := TFirefox.Create(MinVersion);
-  end
-  // if is IE, but older version
-  else if (rBrowser is TInternetExplorer) and (not rBrowser.IsSupported) then begin
-    MinVersion := rBrowser.MinSupportedVersion;
-    rBrowser.Free;
-    // we will create it as the minimum supported version
-    rBrowser := TInternetExplorer.Create(MinVersion);
-  end;
-end;
-}
-
-procedure TIWServerController.IWServerControllerBaseGetMainForm(
-  var vMainForm: TIWBaseForm);
-begin
-  vMainForm := TISFMain.Create(WebApplication);
-end;
-
-
-procedure TIWServerController.IWServerControllerBaseNewSession(
-  aSession: TIWApplication);
-begin
-  ASession.Data := TUserSession.Create(nil);  //note this is a TUserSession
-                                              //NOT to be confused with TIWUserSession
-  GetIniFile;
 end;
 
 constructor TUserSession.Create(AOwner: TComponent);
@@ -416,6 +357,20 @@ begin
   TISFLogin.Create(WebApplication).Show;
 end;
 
+procedure TIWServerController.IWServerControllerBaseGetMainForm(
+  var vMainForm: TIWBaseForm);
+begin
+  vMainForm := TISFMain.Create(WebApplication);
+end;
+
+procedure TIWServerController.IWServerControllerBaseNewSession(
+  aSession: TIWApplication);
+begin
+  ASession.Data := TUserSession.Create(nil);  //note this is a TUserSession
+                                              //NOT to be confused with TIWUserSession
+  GetIniFile;
+end;
+
 procedure TUserSession.SetCookies;
 var
   tmpString : string;
@@ -465,6 +420,24 @@ begin
         AStringList.Add('ReferenceValues='+UserSession.ReferenceValues.Strings[i-1]);
       end;
     end;
+    {
+    if UserSession.CanInsert then
+    begin
+      AStringList.Add('NewContinentID='+UserSession.NewContinentID);
+      AStringList.Add('NewAreaID='+UserSession.NewAreaID);
+      AStringList.Add('NewUnitID='+UserSession.NewUnitID);
+      AStringList.Add('NewLithologyID='+UserSession.NewLithologyID);
+      AStringList.Add('NewMaterialID='+UserSession.NewMaterialID);
+      AStringList.Add('NewIsotopeSystemID='+UserSession.NewIsotopeSystemID);
+      AStringList.Add('NewApproachID='+UserSession.NewApproachID);
+      AStringList.Add('NewTechniqueID='+UserSession.NewTechniqueID);
+      AStringList.Add('NewInterpretationID='+UserSession.NewInterpretationID);
+      AStringList.Add('NewRatingNum='+UserSession.NewRatingNum);
+      AStringList.Add('NewMethodID='+UserSession.NewMethodID);
+      AStringList.Add('NewAgeUnit='+UserSession.NewAgeUnit);
+      AStringList.Add('NewReferenceID='+UserSession.NewReferenceID);
+    end;
+    }
     dmUser.qCookieInfo.Close;
     dmUser.qCookieInfo.ParamByName('USERID').AsString := UserSession.UserID;
     dmUser.qCookieInfo.ParamByName('SOFTWAREID').AsString := UserSession.ThisProgram;
@@ -544,6 +517,24 @@ begin
       UserSession.IncludeReferenceValues := true;
       UserSession.GetStringsValues(AStringList,'ReferenceValues',UserSession.ReferenceValues);
     end;
+    {
+    if UserSession.CanInsert then
+    begin
+      UserSession.NewContinentID := AStringList.Values['NewContinentID'];
+      UserSession.NewAreaID := AStringList.Values['NewAreaID'];
+      UserSession.NewUnitID := AStringList.Values['NewUnitID'];
+      UserSession.NewLithologyID := AStringList.Values['NewLithologyID'];
+      UserSession.NewMaterialID := AStringList.Values['NewMaterialID'];
+      UserSession.NewIsotopeSystemID := AStringList.Values['NewIsotopeSystemID'];
+      UserSession.NewApproachID := AStringList.Values['NewApproachID'];
+      UserSession.NewTechniqueID := AStringList.Values['NewTechniqueID'];
+      UserSession.NewInterpretationID := AStringList.Values['NewInterpretationID'];
+      UserSession.NewRatingNum := AStringList.Values['NewRatingNum'];
+      UserSession.NewMethodID := AStringList.Values['NewMethodID'];
+      UserSession.NewAgeUnit := AStringList.Values['NewAgeUnit'];
+      UserSession.NewReferenceID := AStringList.Values['NewReferenceID'];
+    end;
+    }
   finally
     AStringList.Free;
   end;
@@ -592,7 +583,6 @@ begin
     end;
   until (match2 = 0);
 end;
-
 
 initialization
   TIWServerController.SetServerControllerClass;

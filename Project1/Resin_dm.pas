@@ -18,12 +18,12 @@ type
     qProgress: TSQLQuery;
     qProgressPROGRESSID: TIntegerField;
     qProgressPROGRESSDATE: TSQLTimeStampField;
-    qProgressPROGRESSDETAILS: TBlobField;
+    qProgressPROGRESSDETAILS: TMemoField;
     dspProgress: TDataSetProvider;
     cdsProgress: TClientDataSet;
     cdsProgressPROGRESSID: TIntegerField;
     cdsProgressPROGRESSDATE: TSQLTimeStampField;
-    cdsProgressPROGRESSDETAILS: TBlobField;
+    cdsProgressPROGRESSDETAILS: TMemoField;
     dsProgress: TDataSource;
     qReagents: TSQLQuery;
     qResins: TSQLQuery;
@@ -42,7 +42,7 @@ type
     qReferencesREFERENCEID: TWideStringField;
     qRefFull: TSQLQuery;
     qRefFullREFERENCEID: TWideStringField;
-    qRefFullREFERNCEDETAIL: TBlobField;
+    qRefFullREFERNCEDETAIL: TMemoField;
     dspReagents: TDataSetProvider;
     dspResins: TDataSetProvider;
     dspElements: TDataSetProvider;
@@ -72,7 +72,7 @@ type
     cdsIonsVALENCE: TSmallintField;
     cdsReferencesREFERENCEID: TWideStringField;
     cdsRefFullREFERENCEID: TWideStringField;
-    cdsRefFullREFERNCEDETAIL: TBlobField;
+    cdsRefFullREFERNCEDETAIL: TMemoField;
     qIonsIONID: TWideStringField;
     cdsIonsIONID: TWideStringField;
     Query1REAGENT1: TWideStringField;
@@ -192,7 +192,7 @@ var
   V: Variant;
 begin
   dmUser.UserInfo.Close;
-  dmUser.UserInfo.ParamByName('USERID').AsString := UserSession.UserID;
+  dmUser.UserInfo.ParamByName('USERNAMEID').AsString := UserSession.UserID;
   dmUser.UserInfo.ParamByName('SOFTWAREID').AsString := UserSession.ThisProgram;
   dmUser.cdsUserInfo.Close;
   dmUser.cdsUserInfo.Open;
@@ -204,7 +204,7 @@ procedure TdmR.SetFormData;
 begin
   UserSession.WhereAmI := 'SetFormData';
   dmUser.UserInfo.Close;
-  dmUser.UserInfo.ParamByName('USERID').AsString := UserSession.UserID;
+  dmUser.UserInfo.ParamByName('USERNAMEID').AsString := UserSession.UserID;
   dmUser.UserInfo.ParamByName('SOFTWAREID').AsString := UserSession.ThisProgram;
   dmUser.cdsUserInfo.Close;
   dmUser.cdsUserInfo.Open;
@@ -309,24 +309,18 @@ end;
 
 procedure TdmR.AllocateMolarityKdData;
 begin
-  dmUser.SetDeveloperData('1');
   dmR.cdsTempDataKD.Open;
   {Allocate data}
-  dmUser.SetDeveloperData('1a');
   dmR.cdsTempDataKD.Filtered := false;
-  dmUser.SetDeveloperData('1b');
   dmR.cdsTempDataKD.First;
-  dmUser.SetDeveloperData('1c');
   UserSession.StartAtX := MolarityEnd;
   UserSession.EndAtX := MolarityStart;
   UserSession.StartAtY := KdEnd;
   UserSession.EndAtY := KdStart;
-  dmUser.SetDeveloperData('1d');
   if (dmR.cdsTempDataKD.RecordCount > 0) then
   begin
     dmR.cdsTempDataKD.EmptyDataSet;
   end;
-  dmUser.SetDeveloperData('2');
   with dmR do
   begin
     Querydm.Close;
@@ -334,7 +328,6 @@ begin
     cdsQuerydm.Close;
     cdsQuerydm.Open;
   end;
-  dmUser.SetDeveloperData('3');
   try
     dmR.cdsQuerydm.First;
     repeat

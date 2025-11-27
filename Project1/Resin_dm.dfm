@@ -7,14 +7,24 @@ object dmR: TdmR
     Params.Strings = (
       'VendorLibOsx=libfbclient.dylib'
       'GetDriverFunc=getSQLDriverFirebird'
-      'LibraryName=c:\exe32\dbexpida41.dll'
+      'LibraryName=dbexpida41.dll'
       'VendorLib=c:\exe32\fbclient.dll'
-      'DataBase=c:\data\firebird\resindb2025v50_utf8.fdb'
+      'DataBase=c:\data\firebird\resindb2025v30_utf8.fdb'
       'User_Name=SYSDBA'
-      'Password=V0lcano3^'
+      'Password=Zbxc456~'
       'SQLDialect=3'
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
       'DevartFirebird TransIsolation=ReadCommitted'
       'ProductName=DevartFirebird'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DBXCommonDriver290.' +
+        'bpl'
+      
+        'MetaDataPackageLoader=TDBXDevartInterBaseMetaDataCommandFactory,' +
+        'DbxDevartInterBaseDriver290.bpl'
+      'DriverUnit=DbxDevartInterBase'
       'Charset=UTF8'
       'UseUnicode=true'
       '')
@@ -204,8 +214,9 @@ object dmR: TdmR
     object qProgressPROGRESSDATE: TSQLTimeStampField
       FieldName = 'PROGRESSDATE'
     end
-    object qProgressPROGRESSDETAILS: TBlobField
+    object qProgressPROGRESSDETAILS: TMemoField
       FieldName = 'PROGRESSDETAILS'
+      BlobType = ftMemo
       Size = 1
     end
   end
@@ -230,9 +241,10 @@ object dmR: TdmR
       DisplayLabel = 'Date'
       FieldName = 'PROGRESSDATE'
     end
-    object cdsProgressPROGRESSDETAILS: TBlobField
+    object cdsProgressPROGRESSDETAILS: TMemoField
       DisplayLabel = 'Details'
       FieldName = 'PROGRESSDETAILS'
+      BlobType = ftMemo
       Size = 1
     end
   end
@@ -354,8 +366,9 @@ object dmR: TdmR
       Required = True
       Size = 100
     end
-    object qRefFullREFERNCEDETAIL: TBlobField
+    object qRefFullREFERNCEDETAIL: TMemoField
       FieldName = 'REFERNCEDETAIL'
+      BlobType = ftMemo
       Size = 1
     end
   end
@@ -495,9 +508,10 @@ object dmR: TdmR
       Required = True
       Size = 100
     end
-    object cdsRefFullREFERNCEDETAIL: TBlobField
+    object cdsRefFullREFERNCEDETAIL: TMemoField
       DisplayLabel = 'Full details'
       FieldName = 'REFERNCEDETAIL'
+      BlobType = ftMemo
       Size = 1
     end
   end
@@ -532,22 +546,16 @@ object dmR: TdmR
     Top = 392
   end
   object cdsTempDataKD: TClientDataSet
-    PersistDataPacket.Data = {
-      7C0000009619E0BD0100000018000000050000000000030000007C0005496F6E
-      494401004A000000010005574944544802000200060007456C656D656E740100
-      4A00000001000557494454480200020004000756616C656E6365040001000000
-      0000084D6F6C61726974790800040000000000024B4408000400000000000000}
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
         Name = 'IonID'
-        DataType = ftWideString
+        DataType = ftString
         Size = 3
       end
       item
         Name = 'Element'
-        DataType = ftWideString
+        DataType = ftString
         Size = 2
       end
       item
@@ -743,7 +751,6 @@ object dmR: TdmR
     Top = 152
   end
   object SQLMonitor1: TSQLMonitor
-    Active = True
     SQLConnection = sqlcResinDB
     Left = 88
     Top = 16

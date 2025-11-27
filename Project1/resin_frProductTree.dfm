@@ -19,38 +19,39 @@ object ISFProductTree: TISFProductTree
     HorzScrollBar.Visible = False
     VertScrollBar.Visible = False
     RenderInvisibleControls = True
+    TabOrder = 0
     Align = alClient
+    BorderOptions.NumericWidth = 1
+    BorderOptions.BorderWidth = cbwNumeric
     BorderOptions.Style = cbsNone
+    BorderOptions.Color = clNone
     Color = clWebLIGHTGOLDENRODYELLOW
     ZIndex = -1
     DesignSize = (
       142
       693)
     object rectRight: TIWRectangle
-      AlignWithMargins = False
-      Left = 134
-      Top = 0
+      Left = 133
+      Top = 1
       Width = 8
-      Height = 693
+      Height = 691
       Align = alRight
-      Font.PxSize = 13
       Font.Color = clWebBLACK
+      Font.Size = 10
+      Font.Style = []
       BorderOptions.Width = 0
       FriendlyName = 'rectRight'
       Color = clWebKHAKI
       Alignment = taLeftJustify
       VAlign = vaMiddle
-      ExplicitLeft = 133
-      ExplicitTop = 1
-      ExplicitHeight = 691
     end
     object IWImage1: TIWImage
-      AlignWithMargins = False
       Left = 6
       Top = 6
       Width = 119
       Height = 112
       BorderOptions.Width = 0
+      TabOrder = -1
       UseSize = True
       Picture.Data = {
         07544269746D6170F6AC0000424DF6AC0000000000003604000028000000F000
@@ -1451,12 +1452,15 @@ object ISFProductTree: TISFProductTree
       Width = 123
       Height = 559
       RenderInvisibleControls = True
+      TabOrder = 0
       Anchors = [akLeft, akTop, akRight, akBottom]
+      BorderOptions.NumericWidth = 1
+      BorderOptions.BorderWidth = cbwNumeric
       BorderOptions.Style = cbsNone
+      BorderOptions.Color = clNone
       Color = clWebLIGHTGOLDENRODYELLOW
       ZIndex = -1
       object iwlDefineQuery: TIWLink
-        AlignWithMargins = False
         Left = 2
         Top = 6
         Width = 85
@@ -1465,20 +1469,19 @@ object ISFProductTree: TISFProductTree
         StyleRenderOptions.RenderSize = False
         Alignment = taLeftJustify
         Color = clNone
+        Font.Color = clNone
         Font.FontName = 'Arial'
         Font.Size = 9
         Font.Style = [fsUnderline]
-        Font.PxSize = 12
         HasTabOrder = True
         DoSubmitValidation = False
         FriendlyName = 'iwlDefineQuery'
         OnClick = iwlDefineQueryClick
-        TabOrder = -1
+        TabOrder = 0
         RawText = False
         Caption = 'Define query'
       end
       object iwlMainPage: TIWLink
-        AlignWithMargins = False
         Left = 2
         Top = 53
         Width = 74
@@ -1487,10 +1490,10 @@ object ISFProductTree: TISFProductTree
         StyleRenderOptions.RenderSize = False
         Alignment = taLeftJustify
         Color = clNone
+        Font.Color = clNone
         Font.FontName = 'Arial'
         Font.Size = 9
         Font.Style = [fsUnderline]
-        Font.PxSize = 12
         HasTabOrder = True
         DoSubmitValidation = False
         FriendlyName = 'iwlMainPage'
@@ -1500,7 +1503,6 @@ object ISFProductTree: TISFProductTree
         Caption = 'Main page'
       end
       object iwlGraphResults: TIWLink
-        AlignWithMargins = False
         Left = 2
         Top = 24
         Width = 119
@@ -1509,10 +1511,10 @@ object ISFProductTree: TISFProductTree
         StyleRenderOptions.RenderSize = False
         Alignment = taLeftJustify
         Color = clNone
+        Font.Color = clNone
         Font.FontName = 'Arial'
         Font.Size = 9
         Font.Style = [fsUnderline]
-        Font.PxSize = 12
         HasTabOrder = True
         DoSubmitValidation = False
         FriendlyName = 'iwlDefineQuery'

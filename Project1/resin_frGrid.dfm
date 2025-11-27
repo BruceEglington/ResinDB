@@ -17,21 +17,19 @@ object ISFGrid: TISFGrid
   DesignLeft = 2
   DesignTop = 2
   object lblRecordCount: TIWLabel
-    AlignWithMargins = False
     Left = 154
     Top = 78
     Width = 145
     Height = 15
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
-    NoWrap = True
+    Font.Style = []
     HasTabOrder = False
     FriendlyName = 'lblRecordCount'
     Caption = 'records match the query'
   end
   object iwDBgResults: TIWDBGrid
-    AlignWithMargins = False
     Left = 150
     Top = 126
     Width = 617
@@ -44,23 +42,23 @@ object ISFGrid: TISFGrid
     BorderStyle = tfDefault
     CellPadding = 3
     CellSpacing = 0
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 8
-    Font.PxSize = 10
+    Font.Style = []
     FrameBuffer = 40
     Lines = tlAll
     UseFrame = False
     UseSize = False
-    ShowEmptyCells = True
-    ShowInvisibleRows = True
     ScrollToCurrentRow = False
     Columns = <
       item
         Alignment = taLeftJustify
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -69,6 +67,7 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = False
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'RESINNAME'
@@ -76,8 +75,9 @@ object ISFGrid: TISFGrid
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -92,9 +92,10 @@ object ISFGrid: TISFGrid
         Alignment = taCenter
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.FontName = 'Verdana'
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -103,6 +104,7 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = True
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'REAGENTNAME'
@@ -110,8 +112,9 @@ object ISFGrid: TISFGrid
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -126,8 +129,9 @@ object ISFGrid: TISFGrid
         Alignment = taRightJustify
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -136,14 +140,16 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = True
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'MOLARITY1'
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -158,8 +164,9 @@ object ISFGrid: TISFGrid
         Alignment = taCenter
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -168,6 +175,7 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = True
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'REAGENT2'
@@ -175,8 +183,9 @@ object ISFGrid: TISFGrid
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -191,8 +200,9 @@ object ISFGrid: TISFGrid
         Alignment = taRightJustify
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -201,14 +211,16 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = True
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'MOLARITY2'
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -223,8 +235,9 @@ object ISFGrid: TISFGrid
         Alignment = taCenter
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -233,6 +246,7 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = True
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'ELEMENT'
@@ -240,8 +254,9 @@ object ISFGrid: TISFGrid
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -256,8 +271,9 @@ object ISFGrid: TISFGrid
         Alignment = taCenter
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -266,14 +282,16 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = True
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'VALENCE'
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -288,8 +306,9 @@ object ISFGrid: TISFGrid
         Alignment = taRightJustify
         BGColor = clNone
         DoSubmitValidation = True
+        Font.Color = clNone
         Font.Size = 8
-        Font.PxSize = 10
+        Font.Style = []
         Header = False
         Height = '0'
         ShowHint = True
@@ -298,6 +317,7 @@ object ISFGrid: TISFGrid
         Width = '0'
         Wrap = True
         RawText = False
+        Css = ''
         BlobCharLimit = 0
         CompareHighlight = hcNone
         DataField = 'KD'
@@ -305,8 +325,9 @@ object ISFGrid: TISFGrid
         Title.Alignment = taCenter
         Title.BGColor = clNone
         Title.DoSubmitValidation = True
+        Title.Font.Color = clNone
         Title.Font.Size = 8
-        Title.Font.PxSize = 10
+        Title.Font.Style = []
         Title.Header = False
         Title.Height = '0'
         Title.ShowHint = True
@@ -332,9 +353,9 @@ object ISFGrid: TISFGrid
     RowHeaderColor = clWebKHAKI
     RowAlternateColor = clNone
     RowCurrentColor = clNone
+    TabOrder = -1
   end
   object iwlPrevPage: TIWLink
-    AlignWithMargins = False
     Left = 150
     Top = 105
     Width = 97
@@ -343,20 +364,19 @@ object ISFGrid: TISFGrid
     StyleRenderOptions.RenderSize = False
     Alignment = taLeftJustify
     Color = clNone
-    Font.FontName = 'Arial'
-    Font.Style = [fsUnderline]
-    Font.PxSize = 13
     Font.Color = clWebBLUE
+    Font.FontName = 'Arial'
+    Font.Size = 10
+    Font.Style = []
     HasTabOrder = True
     DoSubmitValidation = False
     FriendlyName = 'iwlPrevPage'
     OnClick = iwlPrevPageClick
-    TabOrder = -1
+    TabOrder = 0
     RawText = False
     Caption = 'Previous page'
   end
   object iwlNextPage: TIWLink
-    AlignWithMargins = False
     Left = 276
     Top = 105
     Width = 65
@@ -365,11 +385,10 @@ object ISFGrid: TISFGrid
     StyleRenderOptions.RenderSize = False
     Alignment = taLeftJustify
     Color = clNone
+    Font.Color = clWebBLUE
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.Style = [fsUnderline]
-    Font.PxSize = 12
-    Font.Color = clWebBLUE
+    Font.Style = []
     HasTabOrder = True
     DoSubmitValidation = False
     FriendlyName = 'iwlNextPage'
@@ -379,17 +398,15 @@ object ISFGrid: TISFGrid
     Caption = 'Next page'
   end
   object iwlSortedBy: TIWLabel
-    AlignWithMargins = False
     Left = 625
     Top = 106
     Width = 137
     Height = 14
     Alignment = taRightJustify
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 8
     Font.Style = [fsItalic]
-    Font.PxSize = 10
-    NoWrap = True
     HasTabOrder = False
     FriendlyName = 'iwlSortedBy'
     Caption = 'Sorted as specified in query'
@@ -422,33 +439,23 @@ object ISFGrid: TISFGrid
       DesignSize = (
         810
         69)
-      inherited rectBlackTop: TIWRectangle
-        Font.Color = clWebBLACK
-      end
       inherited rectRedTop: TIWRectangle
         Width = 677
-        Font.Color = clWebBLACK
         ExplicitWidth = 677
       end
       inherited lnkSignIn: TIWLink
         Left = 568
         Top = 14
-        Font.Color = clWebBLUE
         ExplicitLeft = 568
         ExplicitTop = 14
       end
       inherited IWRectangleTitle: TIWRectangle
         Width = 513
-        Font.Color = clWebDIMGRAY
         ExplicitWidth = 513
-      end
-      inherited lblWelcome: TIWLabel
-        Font.Color = clWebGOLDENROD
       end
       inherited iwlSignOut: TIWLink
         Left = 646
         Top = 14
-        Font.Color = clWebBLUE
         ExplicitLeft = 646
         ExplicitTop = 14
       end
@@ -458,7 +465,7 @@ object ISFGrid: TISFGrid
     Left = 0
     Top = 69
     Width = 142
-    Height = 502
+    Height = 857
     Align = alLeft
     Constraints.MaxWidth = 142
     Constraints.MinWidth = 142
@@ -468,19 +475,18 @@ object ISFGrid: TISFGrid
     ShowHint = False
     TabOrder = 1
     ExplicitTop = 69
-    ExplicitHeight = 502
+    ExplicitHeight = 857
     inherited IWFrameRegion: TIWRegion
-      Height = 502
+      Height = 857
       TabOrder = 1
-      ExplicitHeight = 502
+      ExplicitHeight = 857
       inherited rectRight: TIWRectangle
-        Height = 502
-        Font.Color = clWebBLACK
+        Height = 857
         ExplicitHeight = 857
       end
       inherited iwregPageLinks: TIWRegion
-        Height = 368
-        ExplicitHeight = 368
+        Height = 723
+        ExplicitHeight = 723
       end
     end
   end

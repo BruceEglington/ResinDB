@@ -1,15 +1,18 @@
 object IWServerController: TIWServerController
-  OldCreateOrder = False
   AppName = 'ResinDB'
   ComInitialization = ciMultiThreaded
-  Compression.Enabled = False
-  Compression.Level = 6
-  Description = 'Ion exchange Kd database'
-  DisplayName = 'IntraWeb Application'
+  Description = 'Resin Database'
+  DisplayName = 'ResinDB'
   Port = 8084
-  Version = '15.2.23'
+  SSLOptions.SSLVersion = SSLv3
+  URLBase = '/resin/'
+  Version = '16.1.8'
+  ExceptionLogger.ReportInfos = [riAppInfo, riExceptionInfo, riIWAppInfo, riStackTrace]
+  ExceptionLogger.Enabled = True
+  HttpKeepAlive = True
+  SessionOptions.SessionTimeout = 30
   OnNewSession = IWServerControllerBaseNewSession
   OnGetMainForm = IWServerControllerBaseGetMainForm
-  Height = 310
-  Width = 342
+  Height = 319
+  Width = 458
 end

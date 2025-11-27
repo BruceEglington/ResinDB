@@ -17,49 +17,48 @@ object IWChartKD: TIWChartKD
   DesignLeft = 2
   DesignTop = 2
   object iwbChangeAxisScales: TIWButton
-    AlignWithMargins = False
     Left = 370
     Top = 6
     Width = 75
     Height = 21
     Caption = 'Change'
     Color = clBtnFace
+    Font.Color = clNone
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     FriendlyName = 'iwbChangeAxisScales'
     TabOrder = 4
     OnClick = iwbChangeAxisScalesClick
   end
   object iwbClose: TIWButton
-    AlignWithMargins = False
     Left = 8
     Top = 6
     Width = 75
     Height = 21
     Caption = 'Close'
     Color = clWebLIGHTGREEN
+    Font.Color = clNone
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     FriendlyName = 'iwbClose'
     TabOrder = 9
     OnClick = iwbCloseClick
   end
   object iwbExportGraphValues: TIWButton
-    AlignWithMargins = False
     Left = 8
     Top = 28
     Width = 75
     Height = 21
     Caption = 'Export'
     Color = clBtnFace
+    Font.Color = clNone
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     FriendlyName = 'iwbExportGraphValues'
     TabOrder = 8
     OnClick = iwbExportGraphValuesClick
   end
   object iwcbAutomaticScaling: TIWCheckBox
-    AlignWithMargins = False
     Left = 370
     Top = 28
     Width = 145
@@ -67,9 +66,10 @@ object IWChartKD: TIWChartKD
     Cursor = crAuto
     Caption = 'Automatic scale'
     Editable = True
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     SubmitOnAsyncEvent = True
     Style = stNormal
     TabOrder = 5
@@ -78,7 +78,6 @@ object IWChartKD: TIWChartKD
     FriendlyName = 'iwcbAutomaticScaling'
   end
   object IWCheckBox3: TIWCheckBox
-    AlignWithMargins = False
     Left = 590
     Top = 6
     Width = 145
@@ -86,9 +85,10 @@ object IWChartKD: TIWChartKD
     Cursor = crAuto
     Caption = 'Show Legend'
     Editable = True
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     SubmitOnAsyncEvent = True
     Style = stNormal
     TabOrder = 6
@@ -97,7 +97,6 @@ object IWChartKD: TIWChartKD
     FriendlyName = 'IWCheckBox1'
   end
   object IWCheckBox4: TIWCheckBox
-    AlignWithMargins = False
     Left = 590
     Top = 26
     Width = 145
@@ -105,9 +104,10 @@ object IWChartKD: TIWChartKD
     Cursor = crAuto
     Caption = 'Show background'
     Editable = True
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     SubmitOnAsyncEvent = True
     Style = stNormal
     TabOrder = 7
@@ -116,118 +116,117 @@ object IWChartKD: TIWChartKD
     FriendlyName = 'IWCheckBox1'
   end
   object iweXMaximum: TIWEdit
-    AlignWithMargins = False
     Left = 284
     Top = 28
     Width = 69
     Height = 21
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     FriendlyName = 'IWEdit2'
     SubmitOnAsyncEvent = True
     TabOrder = 3
   end
   object iweXMinimum: TIWEdit
-    AlignWithMargins = False
     Left = 170
     Top = 28
     Width = 69
     Height = 21
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     FriendlyName = 'iweXMinimum'
     SubmitOnAsyncEvent = True
     TabOrder = 2
   end
   object iweYMaximum: TIWEdit
-    AlignWithMargins = False
     Left = 284
     Top = 4
     Width = 69
     Height = 21
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     FriendlyName = 'IWEdit1'
     SubmitOnAsyncEvent = True
     TabOrder = 1
   end
   object iweYMinimum: TIWEdit
-    AlignWithMargins = False
     Left = 170
     Top = 4
     Width = 69
     Height = 21
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     FriendlyName = 'iweYMinimum'
     SubmitOnAsyncEvent = True
   end
   object IWLabel3: TIWLabel
-    AlignWithMargins = False
     Left = 104
     Top = 8
     Width = 64
     Height = 15
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     HasTabOrder = False
     FriendlyName = 'IWLabel3'
     Caption = 'Y axis min.'
   end
   object IWLabel4: TIWLabel
-    AlignWithMargins = False
     Left = 104
     Top = 32
     Width = 64
     Height = 15
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     HasTabOrder = False
     FriendlyName = 'IWLabel4'
     Caption = 'X axis min.'
   end
   object IWLabel5: TIWLabel
-    AlignWithMargins = False
     Left = 250
     Top = 8
     Width = 28
     Height = 15
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     HasTabOrder = False
     FriendlyName = 'IWLabel3'
     Caption = 'max.'
   end
   object IWLabel6: TIWLabel
-    AlignWithMargins = False
     Left = 250
     Top = 32
     Width = 28
     Height = 15
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     HasTabOrder = False
     FriendlyName = 'IWLabel4'
     Caption = 'max.'
   end
   object IWChart1: TIWChart
-    AlignWithMargins = False
     Left = 7
     Top = 60
     Width = 750
@@ -237,14 +236,14 @@ object IWChartKD: TIWChartKD
     Chart = Chart1
   end
   object IWLabel1: TIWLabel
-    AlignWithMargins = False
     Left = 8
     Top = 565
     Width = 199
     Height = 15
+    Font.Color = clNone
     Font.FontName = 'Arial'
     Font.Size = 9
-    Font.PxSize = 12
+    Font.Style = []
     HasTabOrder = False
     FriendlyName = 'IWLabel1'
     Caption = 'ResinDB ion exchange database'
@@ -259,7 +258,7 @@ object IWChartKD: TIWChartKD
     Foot.Font.Style = [fsBold]
     Foot.Text.Strings = (
       '     Saskatchewan Isotope Laboratory'
-      '(c) Dr Bruce Eglington (2004-2025)')
+      '(c) Dr Bruce Eglington (2004-2022)')
     Gradient.EndColor = 12615680
     Gradient.MidColor = clWhite
     Gradient.StartColor = clSilver
@@ -305,6 +304,7 @@ object IWChartKD: TIWChartKD
       27)
     ColorPaletteIndex = 0
     object Series1: TLineSeries
+      HoverElement = [heCurrent]
       Brush.BackColor = clDefault
       LinePen.Color = clRed
       LinePen.Width = 2
@@ -332,6 +332,7 @@ object IWChartKD: TIWChartKD
         0000C8884000000000000038400000000000188940}
     end
     object Series3: TLineSeries
+      HoverElement = [heCurrent]
       SeriesColor = clBlue
       Title = 'Series2'
       Brush.BackColor = clDefault
@@ -355,6 +356,7 @@ object IWChartKD: TIWChartKD
         000000F03F0000000000002640}
     end
     object Series2: TLineSeries
+      HoverElement = [heCurrent]
       Title = 'Series3'
       Brush.BackColor = clDefault
       LinePen.Color = clGreen
@@ -377,6 +379,7 @@ object IWChartKD: TIWChartKD
         00006075400000000000607040}
     end
     object Series4: TLineSeries
+      HoverElement = [heCurrent]
       Brush.BackColor = clDefault
       LinePen.Color = clYellow
       LinePen.Width = 3
@@ -398,6 +401,7 @@ object IWChartKD: TIWChartKD
         00006067400000000000A06940}
     end
     object Series5: TLineSeries
+      HoverElement = [heCurrent]
       SeriesColor = clFuchsia
       Brush.BackColor = clDefault
       LinePen.Color = clFuchsia

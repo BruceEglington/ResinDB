@@ -95,7 +95,6 @@ end;
 procedure TISFMain.LeftTreeiwlGraphResultsClick(Sender: TObject);
 begin
   LeftTree.iwlGraphResultsClick(Sender);
-
 end;
 
 procedure TISFMain.IWAppFormDestroy(Sender: TObject);

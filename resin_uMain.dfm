@@ -50,17 +50,24 @@ object ISFMain: TISFMain
       DesignSize = (
         855
         69)
+      inherited rectBlackTop: TIWRectangle
+        Font.Color = clWebBLACK
+      end
       inherited rectRedTop: TIWRectangle
         Width = 722
+        Font.Color = clWebBLACK
         ExplicitWidth = 722
       end
       inherited lnkSignIn: TIWLink
         Left = 540
         Font.Size = 9
+        Font.PxSize = 12
+        Font.Color = clWebBLUE
         ExplicitLeft = 540
       end
       inherited IWRectangleTitle: TIWRectangle
         Width = 513
+        Font.Color = clWebDIMGRAY
         ExplicitWidth = 513
       end
       inherited lblWelcome: TIWLabel
@@ -68,12 +75,16 @@ object ISFMain: TISFMain
         Width = 3
         Height = 15
         Font.Size = 9
+        Font.PxSize = 12
+        Font.Color = clWebGOLDENROD
         ExplicitLeft = 152
         ExplicitWidth = 3
         ExplicitHeight = 15
       end
       inherited iwlSignOut: TIWLink
         Font.Size = 9
+        Font.PxSize = 12
+        Font.Color = clWebBLUE
       end
     end
   end
@@ -83,32 +94,28 @@ object ISFMain: TISFMain
     Width = 713
     Height = 480
     RenderInvisibleControls = True
-    TabOrder = 0
     Align = alClient
-    BorderOptions.NumericWidth = 1
-    BorderOptions.BorderWidth = cbwNumeric
     BorderOptions.Style = cbsNone
-    BorderOptions.Color = clNone
     ZIndex = -1
     object IWDBMemo1: TIWDBMemo
+      AlignWithMargins = False
       Left = 10
       Top = 61
       Width = 679
       Height = 320
       StyleRenderOptions.RenderBorder = False
       BGColor = clWebWHITE
-      Editable = True
-      Font.Color = clNone
+      Editable = False
       Font.FontName = 'Arial'
       Font.Size = 9
-      Font.Style = []
-      InvisibleBorder = False
+      Font.PxSize = 12
+      InvisibleBorder = True
       HorizScrollBar = False
       VertScrollBar = True
       Required = False
       TabOrder = 1
       SubmitOnAsyncEvent = True
-      AutoEditable = False
+      AutoEditable = True
       DataField = 'PROGRESSDETAILS'
       DataSource = dmUser.dsProgress
       FriendlyName = 'IWDBMemo1'
@@ -119,23 +126,22 @@ object ISFMain: TISFMain
       Width = 713
       Height = 60
       RenderInvisibleControls = True
-      TabOrder = 0
       Align = alTop
       BorderOptions.NumericWidth = 0
-      BorderOptions.BorderWidth = cbwNumeric
       BorderOptions.Style = cbsNone
-      BorderOptions.Color = clNone
       ZIndex = -1
       object lblWelcome: TIWLabel
+        AlignWithMargins = False
         Left = 12
         Top = 26
         Width = 211
         Height = 22
         ZIndex = 1
-        Font.Color = clWebDARKGOLDENROD
         Font.FontName = 'Arial'
         Font.Size = 14
         Font.Style = [fsBold]
+        Font.PxSize = 18
+        Font.Color = clWebDARKGOLDENROD
         HasTabOrder = False
         FriendlyName = 'lblWelcome'
         Caption = 'Welcome to ResinDB'
@@ -147,63 +153,63 @@ object ISFMain: TISFMain
       Width = 713
       Height = 81
       RenderInvisibleControls = True
-      TabOrder = 0
       Align = alBottom
-      BorderOptions.NumericWidth = 1
-      BorderOptions.BorderWidth = cbwNumeric
       BorderOptions.Style = cbsNone
-      BorderOptions.Color = clNone
       ZIndex = -1
       object IWLabel3: TIWLabel
+        AlignWithMargins = False
         Left = 8
         Top = 34
         Width = 141
         Height = 14
-        Font.Color = clNone
         Font.FontName = 'Arial'
         Font.Size = 8
-        Font.Style = []
+        Font.PxSize = 10
+        NoWrap = True
         HasTabOrder = False
         FriendlyName = 'IWLabel3'
         Caption = 'bruce.eglington@usask.ca'
       end
       object IWDBLabel1: TIWDBLabel
+        AlignWithMargins = False
         Left = 8
         Top = 18
         Width = 108
         Height = 15
-        Font.Color = clNone
         Font.FontName = 'Arial'
         Font.Size = 9
-        Font.Style = []
+        Font.PxSize = 12
+        NoWrap = True
         HasTabOrder = False
         DataField = 'PROGRESSDATE'
         DataSource = dmUser.dsProgress
         FriendlyName = 'IWDBLabel1'
       end
       object IWLabel1: TIWLabel
+        AlignWithMargins = False
         Left = 8
         Top = 1
         Width = 113
         Height = 15
-        Font.Color = clNone
         Font.FontName = 'Arial'
         Font.Size = 9
-        Font.Style = []
+        Font.PxSize = 12
+        NoWrap = True
         HasTabOrder = False
         FriendlyName = 'IWLabel1'
         Caption = 'Dr Bruce Eglington'
       end
       object iwlNumUses: TIWLabel
+        AlignWithMargins = False
         Left = 542
-        Top = 57
+        Top = 33
         Width = 141
         Height = 14
         Alignment = taRightJustify
-        Font.Color = clNone
         Font.FontName = 'Arial'
         Font.Size = 8
-        Font.Style = []
+        Font.PxSize = 10
+        NoWrap = True
         HasTabOrder = False
         FriendlyName = 'iwlNumUses'
         Caption = 'This program has been used '
@@ -230,6 +236,7 @@ object ISFMain: TISFMain
       ExplicitHeight = 480
       inherited rectRight: TIWRectangle
         Height = 480
+        Font.Color = clWebBLACK
         ExplicitHeight = 480
       end
       inherited iwregPageLinks: TIWRegion
